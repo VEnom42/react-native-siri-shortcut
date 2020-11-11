@@ -34,6 +34,7 @@ export const supportsSiriButton =
 const AddToSiriButton = ({
   buttonStyle = SiriButtonStyles.white,
   style = {},
+  wrapperStyle = {},
   onPress = () => {},
   shortcut
 }: Props) => (
@@ -43,12 +44,12 @@ const AddToSiriButton = ({
         width: 149,
         height: 50
       },
-      style
+      wrapperStyle,
     ]}
   >
     <RNTAddToSiriButton
       buttonStyle={buttonStyle}
-      style={{ flex: 1 }}
+      style={[{flex: 1}, style]}
       onPress={onPress}
       shortcut={shortcut}
     />

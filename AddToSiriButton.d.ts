@@ -12,6 +12,7 @@ export const SiriButtonStyles: {
 type Props = {
   buttonStyle?: 0 | 1 | 2 | 3;
   style?: ViewStyle;
+  wrapperStyle?: ViewStyle;
   shortcut: ShortcutOptions;
   onPress?: () => void;
 };
