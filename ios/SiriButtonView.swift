@@ -32,8 +32,11 @@ public class SiriButtonView : UIView {
         // TODO: Initialize with passed in styling
         self.style = style ?? self.style
         button = INUIAddVoiceShortcutButton(style: self.style)
-        // Remove constraints so that the button renders with the default size Apple intended
-        button.translatesAutoresizingMaskIntoConstraints = false
+        if #available(iOS 13, *) {
+            button.translatesAutoresizingMaskIntoConstraints = true
+        } else {
+            button.translatesAutoresizingMaskIntoConstraints = false
+        }
         // Wire up with the JS onPress
         button.addTarget(self, action: #selector(SiriButtonView.onClick), for: .touchUpInside)
         // Add the shortcut, if provided
